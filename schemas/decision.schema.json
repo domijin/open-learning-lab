@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Research Decision",
+  "type": "object",
+  "required": [
+    "id",
+    "decision",
+    "rationale",
+    "evidence",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "pattern": "^D[0-9]{3,}$"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scope": {
+      "type": "string"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

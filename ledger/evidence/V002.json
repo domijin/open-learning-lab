@@ -1,0 +1,11 @@
+{
+  "id": "V002",
+  "experiment": "E001",
+  "target": "H001",
+  "kind": "far_transfer",
+  "observation": "When moved from LLM research to clinical MRI, the learner transferred the experiment/knowledge abstraction into questions about incremental metadata value, robustness to missing/inaccurate metadata, model interaction, and downstream collection-cost/clinical-benefit tradeoffs.",
+  "interpretation": "Evidence of cross-domain systems transfer during the same session. Because the transfer occurred with active tutoring context, it is not yet a delayed unassisted transfer test.",
+  "confidence": null,
+  "provenance": "Selected structured observation from the initiating Open Learning Lab Marin learning session.",
+  "created_at": "2026-08-29"
+}

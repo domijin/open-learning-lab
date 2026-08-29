@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Hypothesis",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "claim",
+    "falsification",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "pattern": "^H[0-9]{3,}$"
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "active",
+        "supported",
+        "weakened",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "claim": {
+      "type": "string"
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "falsification": {
+      "type": "string"
+    },
+    "target_capability": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

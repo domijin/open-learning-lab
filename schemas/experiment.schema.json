@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Learning Experiment",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "hypotheses",
+    "objective",
+    "protocol",
+    "evaluation",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "pattern": "^E[0-9]{3,}$"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "active",
+        "completed",
+        "stopped"
+      ]
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "objective": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evaluation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "learner_scope": {
+      "type": "string"
+    },
+    "study": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

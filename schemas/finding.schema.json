@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Finding",
+  "type": "object",
+  "required": [
+    "id",
+    "claim",
+    "evidence",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "pattern": "^F[0-9]{3,}$"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "preliminary",
+        "supported",
+        "mixed",
+        "contradicted",
+        "superseded"
+      ]
+    },
+    "conditions": {
+      "type": "string"
+    },
+    "uncertainty": {
+      "type": "string"
+    },
+    "decision_relevance": {
+      "type": "string"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

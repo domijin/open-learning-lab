@@ -1,0 +1,14 @@
+{
+  "id": "G001",
+  "status": "active",
+  "capability": "Independently reconstruct, critique, and transfer the design principles of Marin-style open research systems while staying current with the active Marin project.",
+  "success_evidence": [
+    "Delayed unassisted reconstruction of the major design judgments.",
+    "Near transfer to a new AI research-system design problem.",
+    "Far transfer to a non-LLM domain.",
+    "Ability to critique Marin with evidence rather than terminology recall."
+  ],
+  "scope": "Study 001 — Marin; initial N-of-1 learner.",
+  "created_at": "2026-08-29",
+  "supersedes": null
+}

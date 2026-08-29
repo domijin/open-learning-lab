@@ -1,0 +1,9 @@
+{
+  "id": "D001",
+  "decision": "Start by optimizing one real learner through longitudinal N-of-1 experiments, then separately test which findings generalize across learners.",
+  "rationale": "A real learner creates immediate value and rich longitudinal evidence while avoiding the unsupported assumption that one learner represents a population.",
+  "evidence": [],
+  "scope": "Project methodology",
+  "supersedes": null,
+  "created_at": "2026-08-29"
+}

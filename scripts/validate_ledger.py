@@ -14,17 +14,21 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "ledger"
 
 PREFIX = {
+    "goals": "G",
     "hypotheses": "H",
     "experiments": "E",
     "evidence": "V",
     "findings": "F",
+    "decisions": "D",
 }
 
 REQUIRED = {
+    "goals": {"id", "status", "capability", "success_evidence", "created_at"},
     "hypotheses": {"id", "status", "claim", "falsification", "created_at"},
     "experiments": {"id", "status", "hypotheses", "objective", "protocol", "evaluation", "created_at"},
     "evidence": {"id", "experiment", "target", "kind", "observation", "provenance", "created_at"},
     "findings": {"id", "claim", "evidence", "status", "created_at"},
+    "decisions": {"id", "decision", "rationale", "evidence", "created_at"},
 }
 
 
@@ -71,6 +75,10 @@ def check_links(records):
             for vid in data.get("evidence", []):
                 if vid not in records or records[vid][1] != "evidence":
                     errors.append(f"{path}: unknown evidence reference {vid}")
+        elif kind == "decisions":
+            for evidence_id in data.get("evidence", []):
+                if evidence_id not in records or records[evidence_id][1] != "evidence":
+                    errors.append(f"{path}: unknown evidence reference {evidence_id}")
     return errors
 
 

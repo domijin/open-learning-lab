@@ -1,0 +1,31 @@
+name: Expert challenge
+description: Challenge or refine a specific claim, experiment, or finding.
+title: "[Expert review] "
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Target record / claim
+    validations:
+      required: true
+  - type: dropdown
+    id: judgment
+    attributes:
+      label: Judgment
+      options: [Support, Challenge, Clarify, Alternative, Inconclusive]
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale / evidence
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Expertise context
+  - type: textarea
+    id: update
+    attributes:
+      label: What evidence would change your judgment?

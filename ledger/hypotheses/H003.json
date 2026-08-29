@@ -1,0 +1,12 @@
+{
+  "id": "H003",
+  "status": "proposed",
+  "claim": "Targeted expert review of high-uncertainty or high-impact learner claims produces more learning value per expert-minute than direct expert tutoring.",
+  "rationale": "LLMs can handle information retrieval and routine explanation while scarce experts contribute judgment where value of information is highest.",
+  "falsification": "Targeted review does not improve later learner capability or requires equal/greater expert effort than direct tutoring for comparable outcomes.",
+  "target_capability": "Correct and well-calibrated domain mental models.",
+  "scope": "Requires expert participation and an expert-effort measurement protocol.",
+  "created_at": "2026-08-29",
+  "supersedes": null,
+  "links": []
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence",
+  "type": "object",
+  "required": [
+    "id",
+    "experiment",
+    "target",
+    "kind",
+    "observation",
+    "provenance",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "pattern": "^V[0-9]{3,}$"
+    },
+    "experiment": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "session_observation",
+        "immediate_retrieval",
+        "delayed_retrieval",
+        "near_transfer",
+        "far_transfer",
+        "real_world",
+        "expert_judgment",
+        "external_source"
+      ]
+    },
+    "observation": {
+      "type": "string"
+    },
+    "interpretation": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

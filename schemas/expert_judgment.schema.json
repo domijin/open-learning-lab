@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Expert Judgment",
+  "type": "object",
+  "required": [
+    "id",
+    "target",
+    "judgment",
+    "rationale",
+    "expertise_context",
+    "provenance",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "pattern": "^J[0-9]{3,}$"
+    },
+    "target": {
+      "type": "string"
+    },
+    "judgment": {
+      "enum": [
+        "support",
+        "challenge",
+        "clarify",
+        "alternative",
+        "inconclusive"
+      ]
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "expertise_context": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "attribution": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

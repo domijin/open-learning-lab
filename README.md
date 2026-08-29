@@ -1,5 +1,64 @@
 # Open Learning Lab
 
-An open, evidence-driven experiment in personalized learning.
+**Learn something real. Measure whether it lasts. Open the process so others can challenge and improve it.**
 
-> Bootstrap in progress. The project architecture, methodology, research ledger, and first study will be proposed through a pull request.
+Open Learning Lab is an open experiment in evidence-driven personalized learning. It starts with one real learner and one real learning objective, then asks which LLM-mediated learning policies produce durable, transferable capability per unit of learner effort.
+
+The first study uses the active [Marin](https://marin.community/) project as the learning domain.
+
+## North star
+
+> Discover, validate, and operationalize personalized learning policies that maximize durable, transferable capability per unit of learner effort—starting with one learner, while preserving enough provenance that others can reproduce, challenge, and extend the findings.
+
+We optimize learning **outside** the tutoring session, not how fluent or satisfying the conversation feels.
+
+## How the project works
+
+```text
+current sources + expert judgment + learner state
+                     |
+                     v
+               learning action
+                     |
+                     v
+                  learner
+                     |
+                     v
+       recall / transfer / calibration
+                     |
+                     v
+        evidence -> policy update -> repeat
+```
+
+The public repository is the **research ledger and collaboration surface**. ChatGPT, Claude, Codex, other agents, or humans may act as interfaces. No single model vendor is the platform.
+
+## Research objects
+
+`goal -> hypothesis -> experiment -> observation/evidence -> finding -> decision`
+
+- **Issues** are for proposals and discussion.
+- **Pull requests** are for reviewable changes and preregistration.
+- **Ledger records** are the durable canonical record.
+- Published records are append-only in spirit: corrections supersede; they do not silently rewrite history.
+
+## Experiment 0001: Learn Marin
+
+The first active hypothesis is:
+
+> Asking a learner to make the underlying design judgment before revealing how Marin solved the problem improves later reconstruction and transfer compared with explanation-first learning.
+
+The current session has generated promising observations, but **not a validated finding**. Delayed retrieval and transfer tests are still required.
+
+See [studies/marin](studies/marin/README.md).
+
+## Contributing
+
+You can contribute as a learner, domain expert, educator, learning-science researcher, or agent builder. The cheapest useful contribution is often a challenge to a claim or experimental design—not a full lesson.
+
+Read [CHARTER.md](CHARTER.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [AGENTS.md](AGENTS.md).
+
+## Status
+
+**v0 / bootstrap.** Research protocol first; product UI later, when real workflow pain tells us what to build.
+
+Apache-2.0 licensed.

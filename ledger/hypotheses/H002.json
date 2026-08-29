@@ -1,0 +1,12 @@
+{
+  "id": "H002",
+  "status": "proposed",
+  "claim": "Adaptive retrieval timing based on observed learner performance improves effort-adjusted durable retention relative to a fixed retrieval schedule.",
+  "rationale": "Observed forgetting and mastery may provide a better scheduling signal than one universal spacing curve.",
+  "falsification": "Adaptive scheduling yields no durable-retention advantage after accounting for learner time/effort.",
+  "target_capability": "Durable reconstruction of learned concepts.",
+  "scope": "Not active until a stable retrieval measurement protocol exists.",
+  "created_at": "2026-08-29",
+  "supersedes": null,
+  "links": []
+}

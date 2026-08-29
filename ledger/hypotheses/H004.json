@@ -1,0 +1,12 @@
+{
+  "id": "H004",
+  "status": "proposed",
+  "claim": "Preserving hypothesis-to-intervention-to-evidence-to-finding provenance enables better learning-system improvement than storing conversational summaries alone.",
+  "rationale": "Structured provenance should make failed assumptions, contradictions, and reusable learning-policy evidence easier to inspect and improve.",
+  "falsification": "The structured ledger does not materially improve later diagnosis, replication, or policy decisions compared with lightweight summaries, net of maintenance cost.",
+  "target_capability": "Learning-system self-improvement.",
+  "scope": "Evaluate after enough sessions exist for retrospective comparison.",
+  "created_at": "2026-08-29",
+  "supersedes": null,
+  "links": []
+}

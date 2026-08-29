@@ -1,0 +1,14 @@
+{
+  "id": "H001",
+  "status": "active",
+  "claim": "For conceptual system-design learning, requiring the learner to make a design judgment before revealing the reference project's choice improves later reconstruction and transfer compared with explanation-first learning.",
+  "rationale": "Generation before explanation may force the learner to build a causal model rather than recognize a supplied explanation.",
+  "falsification": "Delayed reconstruction and transfer performance does not improve, or learner effort rises enough that effort-adjusted learning is worse than an explanation-first comparator.",
+  "target_capability": "Independently reconstruct and critique Marin-style research-system design decisions.",
+  "scope": "Initial N-of-1 study; conceptual/system-design material.",
+  "created_at": "2026-08-29",
+  "supersedes": null,
+  "links": [
+    "E001"
+  ]
+}

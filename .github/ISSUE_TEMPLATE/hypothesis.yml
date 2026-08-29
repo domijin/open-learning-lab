@@ -1,0 +1,25 @@
+name: Learning hypothesis
+description: Propose a falsifiable claim about learning or the system.
+title: "[Hypothesis] "
+body:
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim
+      description: What should change, for whom, and under what conditions?
+    validations:
+      required: true
+  - type: textarea
+    id: falsification
+    attributes:
+      label: What would falsify it?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale / prior evidence
+  - type: textarea
+    id: cheapest_test
+    attributes:
+      label: Cheapest decision-relevant test

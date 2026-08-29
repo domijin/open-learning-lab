@@ -1,0 +1,30 @@
+{
+  "id": "E001",
+  "status": "active",
+  "hypotheses": [
+    "H001"
+  ],
+  "objective": "Learn Marin deeply enough to independently reconstruct, critique, and transfer its research-system design principles while testing judgment-first project-based learning.",
+  "protocol": [
+    "Establish the learner's current mental model before instruction.",
+    "Present a real design constraint without revealing Marin's implementation.",
+    "Require a learner judgment and rationale.",
+    "Adversarially challenge the judgment or introduce a new constraint.",
+    "Reveal relevant Marin implementation/evidence only after commitment.",
+    "Ask the learner to abstract the mechanism rather than memorize Marin terminology.",
+    "Interleave delayed retrieval and cross-domain transfer tests.",
+    "Retrieve fresh Marin sources when project state may have changed."
+  ],
+  "evaluation": [
+    "Immediate unassisted reconstruction of major design judgments.",
+    "Delayed reconstruction after spacing.",
+    "Near transfer to a new research-system scenario.",
+    "Far transfer to a non-LLM domain.",
+    "Learner confidence/calibration where practical.",
+    "Learner effort/time where practical."
+  ],
+  "learner_scope": "Initial learner / N-of-1.",
+  "study": "studies/marin",
+  "created_at": "2026-08-29",
+  "notes": "Session observations exist, but H001 remains active rather than supported until delayed/transfer evidence is collected."
+}

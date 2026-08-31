@@ -1,0 +1,25 @@
+checkpoint_id: CP001
+parent_checkpoint: null
+captured_at: "2026-08-31"
+study: "studies/marin"
+active_goal: "G001"
+active_experiment: "E001"
+active_hypotheses:
+  - "H001"
+learning_interface: "ChatGPT conversation; some learner responses entered via voice-to-text"
+model_version: "not recorded in the learner-visible study timeline"
+checkpoint_capture_prompt:
+  protocol_id: "checkpoint-capture/v0.2"
+  source: "prompts/checkpoint-capture.md"
+  source_sha: "6b84f04a35449e93757082822b10d707159c393a"
+publication_scope: "Public study-relevant selected excerpts and structured observations under studies/marin/publication-policy.md; unrelated personal context excluded."
+checkpoint_boundary:
+  start: "Initial Marin exploration request in this primary learning timeline"
+  end: "Branch point immediately before the checkpoint-capture request"
+related_evidence:
+  - "V001"
+  - "V002"
+new_evidence:
+  - "V003"
+finding_status: "No finding promoted; H001 remains active."
+source_retrieval_date: "2026-08-31"

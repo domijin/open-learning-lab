@@ -279,3 +279,36 @@ This structure can later map naturally to:
 - PROV-style provenance.
 
 But v0.1 should remain plain JSON/YAML + Git.
+
+
+---
+
+## CP001-derived refinements
+
+The first checkpoint dry run and the successful v0.2 recapture provided concrete evidence about the contract design.
+
+### Issue #8 — false completion
+
+**Disposition:** resolved operationally; contract lesson retained.
+
+A capture may not report completion merely because an agent stopped or created one artifact. HandoffResult therefore represents incomplete/failed states explicitly, and a completed result is structurally invalid if required artifacts or references are missing.
+
+### Issue #12 — one-dimensional evidence strength
+
+**Disposition:** valid, but primarily methodology/evidence-schema scope.
+
+The orchestration contract should not treat the project's L0-L5 shorthand as a total ordering of evidence strength. Delay, assistance, transfer distance, novelty/exposure, and authenticity are independent dimensions. The contract transports references; the evidence model defines assessment semantics.
+
+### Issue #13 — replayable provenance
+
+**Disposition:** directly incorporated.
+
+ContextSnapshot now pins the repository/base commit used to compile state, distinguishes protocol path/content hash from repository context, and permits stable source-interval refs with a human-readable fallback.
+
+### Issue #14 — evidence target vs evidential relation
+
+**Disposition:** partially incorporated.
+
+Projected state/evidence refs may carry typed relations such as `diagnostic` or `demonstrates_capability`. This prevents orchestration from implying support merely because an evidence artifact is relevant to an active hypothesis. The canonical ledger schema still needs separate work.
+
+These refinements are evidence-driven changes to the draft contract, not proof that the contract itself is effective.

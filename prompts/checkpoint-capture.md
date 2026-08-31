@@ -1,6 +1,6 @@
 # Checkpoint Capture Prompt
 
-**Protocol ID:** `checkpoint-capture/v0.1`  
+**Protocol ID:** `checkpoint-capture/v0.2`  
 **Purpose:** Capture a learning checkpoint from a side branch without diverting the primary learning session.
 
 Use this prompt in a conversation branched from the learner's main learning thread at a meaningful checkpoint.
@@ -267,12 +267,40 @@ The PR description should include:
 
 If repository write access is unavailable, produce the exact proposed files/patches so another agent can commit them.
 
-## 12. Return a checkpoint receipt
+## 12. Verify completion before claiming success
 
-At completion, provide only a compact handoff suitable for returning to the primary learning conversation:
+A checkpoint is **complete only if all required artifacts actually exist**.
 
+Before returning a success receipt, verify:
+
+1. `manifest.yaml` exists;
+2. `trace.md` exists;
+3. `learner-state.md` exists;
+4. `sources.md` exists;
+5. `open-questions.md` exists;
+6. every evidence ID listed in the manifest exists in `ledger/evidence/`;
+7. every referenced hypothesis/experiment/goal exists;
+8. repository integrity checks pass;
+9. if GitHub write access is available, a PR exists for the capture branch.
+
+Do not list an evidence ID, finding, commit, or PR unless you verified it exists.
+
+If any required step fails, return **CHECKPOINT INCOMPLETE** with:
 - checkpoint ID;
-- PR/commit reference if available;
+- branch/commit if available;
+- artifacts successfully created;
+- missing/failed artifacts;
+- whether any ledger record may be inconsistent;
+- the exact next action required.
+
+Do not fabricate completion to produce a clean handoff.
+
+## 13. Return a checkpoint receipt
+
+Only after the completion verification passes, provide a compact handoff suitable for returning to the primary learning conversation:
+
+- exact checkpoint ID actually captured;
+- verified PR and commit reference if available;
 - evidence added;
 - no finding / finding changed;
 - one or two highest-value next learning questions.

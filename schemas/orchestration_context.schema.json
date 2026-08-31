@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Learning Lab Orchestration Context v0.1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "context_id",
+    "created_at",
+    "timeline",
+    "situation",
+    "state_refs",
+    "policy",
+    "provenance"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "oll.orchestration/v0.1"
+    },
+    "context_id": {
+      "type": "string",
+      "pattern": "^OC-[A-Za-z0-9._-]+$"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "timeline": {
+      "enum": [
+        "learning",
+        "lab-development"
+      ]
+    },
+    "situation": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "state_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "domain_as_of": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "publication_scope"
+      ],
+      "properties": {
+        "publication_scope": {
+          "type": "string"
+        },
+        "policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "repo_commit"
+      ],
+      "properties": {
+        "repo_commit": {
+          "type": "string"
+        },
+        "compiled_by": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "parent_context": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "protocol_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

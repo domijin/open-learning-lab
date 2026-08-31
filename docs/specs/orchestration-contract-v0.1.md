@@ -405,6 +405,10 @@ verification:
   required_artifacts_exist: true
   references_resolve: true
   repo_validation_passed: true
+  verified_refs:
+    - studies/marin/checkpoints/CP005
+    - ledger/evidence/V018.json
+    - pull/42
   missing: []
 ```
 

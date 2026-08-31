@@ -36,3 +36,9 @@ Prefer current primary sources:
 Record retrieval date because Marin is active.
 
 See [source-map.md](source-map.md) and [decision-log.md](decision-log.md).
+
+## Checkpoint capture
+
+The primary learning conversation remains uninterrupted. At meaningful epistemic checkpoints, branch the conversation and run [checkpoint-capture/v0.1](../../prompts/checkpoint-capture.md). The side branch records trace, learner-state interpretation, sources, evidence, and open questions, then returns control to the main learning thread.
+
+For this study, study-relevant learning progress is public by default under the [Marin publication policy](publication-policy.md).

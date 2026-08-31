@@ -43,6 +43,7 @@
       "required": [
         "required_artifacts_exist",
         "references_resolve",
+        "verified_refs",
         "missing"
       ],
       "properties": {
@@ -58,6 +59,12 @@
             "null"
           ]
         },
+        "verified_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "missing": {
           "type": "array",
           "items": {
@@ -68,5 +75,36 @@
       "additionalProperties": false
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {
+              "required_artifacts_exist": {
+                "const": true
+              },
+              "references_resolve": {
+                "const": true
+              },
+              "missing": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }

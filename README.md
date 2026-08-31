@@ -51,6 +51,12 @@ The current session has generated promising observations, but **not a validated 
 
 See [studies/marin](studies/marin/README.md).
 
+## Checkpointing a learning session
+
+Keep the primary learning conversation as the uninterrupted timeline. At a meaningful learning checkpoint, branch the conversation and run [`checkpoint-capture/v0.1`](prompts/checkpoint-capture.md). The side branch records the trace and evidence, opens a reviewable GitHub change, then returns control to the main learning session.
+
+See [prompts/README.md](prompts/README.md) for the workflow.
+
 ## Contributing
 
 You can contribute as a learner, domain expert, educator, learning-science researcher, or agent builder. The cheapest useful contribution is often a challenge to a claim or experimental design—not a full lesson.

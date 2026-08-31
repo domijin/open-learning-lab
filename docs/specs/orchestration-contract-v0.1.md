@@ -64,19 +64,32 @@ For lab development:
 
 ## State references
 
-Prefer pinned references over copied content.
+Prefer **pinned, typed references** over copied content.
 
-Each reference should include enough information to retrieve the exact artifact, ideally:
+Each reference should include:
 
-- repository path or URI;
-- Git commit/ref;
-- semantic ID when available.
+- `ref` — repository path or stable URI;
+- `revision` — immutable Git commit/content revision when applicable;
+- optional `semantic_id` such as `G001`, `H001`, or `V003`;
+- optional `relations` explaining why the artifact matters to the current situation.
 
-Examples:
+Example:
 
-- `ledger/goals/G001.json@<commit>`
-- `studies/marin/checkpoints/CP004/learner-state.md@<commit>`
-- evidence IDs `V017`, `V018`
+```yaml
+state_refs:
+  - ref: ledger/evidence/V003.json
+    revision: e337686
+    semantic_id: V003
+    relations:
+      - target: G001
+        relation: demonstrates_capability
+      - target: H001
+        relation: diagnostic
+```
+
+A reference to evidence must **not** imply support for a hypothesis merely because the hypothesis is active. Relation is explicit.
+
+This orchestration-level relation does not replace the canonical evidence ontology. Issue #14 remains responsible for fixing the ledger schema itself.
 
 ## Freshness
 
@@ -96,14 +109,54 @@ Do not embed private context merely because the transport supports it.
 
 ## Provenance
 
+The snapshot must identify the exact repository state used to compile it.
+
 Record:
 
+- repository full name;
+- `base_commit` used when loading project state;
 - producer interface/agent when known;
-- source repository commit;
 - parent context/handoff where relevant;
-- protocol/prompt version used to compile the snapshot.
+- protocol/prompt references used to compile the snapshot.
+
+Protocol/prompt provenance should distinguish:
+
+- protocol ID;
+- repository path;
+- content/blob SHA when available.
+
+Example:
+
+```yaml
+provenance:
+  repository_context:
+    repository: domijin/open-learning-lab
+    base_commit: e337686
+  compiled_by:
+    interface: ChatGPT
+  protocol_refs:
+    - id: checkpoint-capture/v0.2
+      path: prompts/checkpoint-capture.md
+      blob_sha: 6b84f04...
+```
+
+This addresses the ambiguity exposed by CP001: a prompt blob hash is not the same thing as the repository state that governed the capture.
 
 No chain-of-thought is required or permitted.
+
+## Source interval
+
+When the context is compiled from a conversation or event stream, record the interval when possible:
+
+```yaml
+source_interval:
+  thread_ref: <opaque interface ref if available>
+  start_ref: <turn/event ref if available>
+  end_ref: <turn/event ref if available>
+  fallback_description: "From previous checkpoint through branch point"
+```
+
+Vendor-specific IDs are optional. If the interface does not expose stable identifiers, keep a human-readable fallback rather than inventing IDs.
 
 ---
 
@@ -236,6 +289,12 @@ The producing agent should verify:
 - expected PR/commit exists;
 - missing requirements are explicitly listed.
 
+The schema must make completion internally consistent:
+
+> If `status: completed`, required artifacts and references must verify successfully and `missing` must be empty.
+
+A result may still be wrong if an agent lies, but the contract must not permit a structurally self-contradictory "completed but missing artifacts" state like the first CP001 dry run.
+
 ---
 
 # 4. Example — learning session to checkpoint capture
@@ -257,21 +316,40 @@ situation:
 
 state_refs:
   - ref: studies/marin/checkpoints/CP004/learner-state.md
-    commit: abc123
+    revision: abc123
+    relations:
+      - target: G001
+        relation: current_learner_state
   - ref: ledger/evidence/V017.json
-    commit: abc123
+    revision: abc123
+    semantic_id: V017
+    relations:
+      - target: H001
+        relation: diagnostic
 
 domain_as_of: 2026-08-31
+
+source_interval:
+  thread_ref: null
+  start_ref: null
+  end_ref: null
+  fallback_description: "Previous checkpoint through current branch point"
 
 policy:
   publication_scope: public-study
   policy_ref: studies/marin/publication-policy.md
 
 provenance:
-  repo_commit: abc123
+  repository_context:
+    repository: domijin/open-learning-lab
+    base_commit: abc123
   compiled_by:
     interface: ChatGPT
     model: optional
+  protocol_refs:
+    - id: checkpoint-capture/v0.2
+      path: prompts/checkpoint-capture.md
+      blob_sha: def456
   parent_context: OC-20260831-000
 ```
 
@@ -356,7 +434,27 @@ This is the contract boundary for the current Open Learning Lab development thre
 
 ---
 
-# 6. What deliberately does NOT travel in v0.1
+# 6. Evidence semantics boundary
+
+The orchestration contract transports/selects evidence; it does **not** define a total ordering of learning evidence quality.
+
+CP001 exposed two important distinctions:
+
+1. evidence quality is multi-dimensional (#12): delay, assistance, transfer distance, novelty/exposure, and authenticity should not be collapsed into one "L0-L5 strength" field;
+2. evidence relevance is not evidential support (#14): a handoff may include V003 because it is diagnostic for H001 while also demonstrating capability toward G001.
+
+Therefore v0.1:
+
+- carries pinned evidence references;
+- may carry typed `relations` for handoff interpretation;
+- does not derive an overall strength score;
+- does not redefine the canonical evidence schema.
+
+The evidence ledger remains the authority for the full assessment model.
+
+---
+
+# 7. What deliberately does NOT travel in v0.1
 
 - full raw chat transcript;
 - hidden model reasoning;
@@ -371,7 +469,7 @@ Agents retrieve deeper context only when the task requires it.
 
 ---
 
-# 7. Transport mapping
+# 8. Transport mapping
 
 The semantic contract should work unchanged over:
 
@@ -387,7 +485,7 @@ Transport integration is a later experiment.
 
 ---
 
-# 8. First falsifiable evaluation
+# 9. First falsifiable evaluation
 
 We should not declare v0.1 successful because it looks clean.
 
@@ -412,3 +510,17 @@ Measure:
 - learner-rated continuity after tutor resumption.
 
 A successful contract minimizes both **context failure** and **context bloat**.
+
+
+---
+
+# 10. CP001 issue evaluation incorporated into v0.1
+
+| Issue | Evaluation | Contract response |
+|---|---|---|
+| #8 false completion | Resolved by checkpoint v0.2; contract-level lesson retained | completed results cannot be structurally missing required artifacts/references |
+| #12 one-dimensional evidence ladder | Valid, but evidence-methodology scope | orchestration does not encode one scalar/ordinal evidence strength |
+| #13 replayable provenance | Directly in scope | exact repository base commit + protocol content refs + optional source interval |
+| #14 evidence target vs relation | Partly in scope | typed relations on projected refs; canonical ledger schema remains separate work |
+
+These changes are based on the first successful CP001 capture and its preceding failed dry run. They are still hypotheses until fresh-agent handoff tests validate the contract.

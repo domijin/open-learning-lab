@@ -38,17 +38,40 @@
       "items": {
         "type": "object",
         "required": [
-          "ref"
+          "ref",
+          "revision"
         ],
         "properties": {
           "ref": {
             "type": "string"
           },
-          "commit": {
+          "revision": {
             "type": "string"
           },
-          "id": {
-            "type": "string"
+          "semantic_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "target",
+                "relation"
+              ],
+              "properties": {
+                "target": {
+                  "type": "string"
+                },
+                "relation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
           }
         },
         "additionalProperties": false
@@ -59,6 +82,39 @@
         "string",
         "null"
       ]
+    },
+    "source_interval": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "thread_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "start_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fallback_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     },
     "policy": {
       "type": "object",
@@ -87,11 +143,24 @@
     "provenance": {
       "type": "object",
       "required": [
-        "repo_commit"
+        "repository_context"
       ],
       "properties": {
-        "repo_commit": {
-          "type": "string"
+        "repository_context": {
+          "type": "object",
+          "required": [
+            "repository",
+            "base_commit"
+          ],
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "base_commit": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "compiled_by": {
           "type": "object",
@@ -103,11 +172,36 @@
             "null"
           ]
         },
-        "protocol_ref": {
+        "parent_handoff": {
           "type": [
             "string",
             "null"
           ]
+        },
+        "protocol_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "path"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "blob_sha": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
         }
       },
       "additionalProperties": false

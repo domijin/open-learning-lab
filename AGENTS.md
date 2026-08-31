@@ -2,6 +2,16 @@
 
 This repository is deliberately model- and interface-neutral. ChatGPT, Claude, Codex, Hermes, local models, and humans should be able to participate through the same research contract.
 
+## Route by session intent
+
+Before writing research artifacts, classify the interval:
+
+- **learning** — learner capability/mental-model change -> study checkpoint / evidence;
+- **lab development** — Open Learning Lab architecture, governance, tooling, protocol, or operations -> Issue / ADR / PR;
+- **mixed** — split the records and cross-link them.
+
+Do not treat project-development activity as learner evidence merely because it occurred in a learning-related conversation.
+
 ## Before acting
 
 1. Read `CHARTER.md`.

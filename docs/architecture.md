@@ -73,3 +73,7 @@ The v0 workflow is chat + GitHub. A custom service earns its existence only when
 - adaptive retrieval scheduler;
 - generated public site;
 - contextual expert calibration.
+
+## Two timelines
+
+The three planes above operate across two distinct timelines: **learning** and **lab development**. Learning checkpoints capture learner-state/evidence; Open Learning Lab architecture, protocol, governance, and operational work use normal project-development artifacts. See [orchestration.md](orchestration.md) and [ADR-0001](adr/ADR-0001-separate-learning-and-lab-development.md).

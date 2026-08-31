@@ -61,4 +61,4 @@ Read [CHARTER.md](CHARTER.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [AGENTS.m
 
 **v0 / bootstrap.** Research protocol first; product UI later, when real workflow pain tells us what to build.
 
-Apache-2.0 licensed.
+Dual licensed: **MIT for software** and **CC BY 4.0 for learning/research content**. See [docs/licensing.md](docs/licensing.md).

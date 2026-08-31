@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Learning Lab Handoff Result v0.1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "result_id",
+    "handoff_ref",
+    "status",
+    "completed_at",
+    "outputs",
+    "verification"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "oll.orchestration/v0.1"
+    },
+    "result_id": {
+      "type": "string",
+      "pattern": "^OR-[A-Za-z0-9._-]+$"
+    },
+    "handoff_ref": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "incomplete",
+        "failed",
+        "input-required",
+        "rejected"
+      ]
+    },
+    "completed_at": {
+      "type": "string"
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "required_artifacts_exist",
+        "references_resolve",
+        "missing"
+      ],
+      "properties": {
+        "required_artifacts_exist": {
+          "type": "boolean"
+        },
+        "references_resolve": {
+          "type": "boolean"
+        },
+        "repo_validation_passed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "missing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

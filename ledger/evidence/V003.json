@@ -1,0 +1,11 @@
+{
+  "id": "V003",
+  "experiment": "E001",
+  "target": "H001",
+  "kind": "immediate_retrieval",
+  "observation": "After intervening discussion, when asked to recall the three mechanisms by which open development might outperform closed development, the learner answered: 'Three mechanism: external knowledge, internal commitment, sustainable economy.'",
+  "interpretation": "L1 immediate retrieval of the synthesized three-mechanism abstraction. This supports in-session reconstruction but does not establish delayed retention or H001's comparative advantage. Because an initial Marin overview preceded the judgment-first sequence, it should not be treated as fully unexposed rediscovery.",
+  "confidence": null,
+  "provenance": "Selected structured observation from the visible Marin learning session; retrieval was unassisted at the point of response, but earlier session material had already exposed the learner to Marin concepts.",
+  "created_at": "2026-08-31"
+}

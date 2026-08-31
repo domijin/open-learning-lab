@@ -39,3 +39,12 @@ The public repo should contain structured research artifacts, not raw private le
 ## Agents welcome
 
 Contributors may use any agent interface. Agents should follow `AGENTS.md` and preserve provenance rather than flattening sources or expert disagreement.
+
+## Licensing contributions
+
+By contributing, you agree that your contribution may be distributed under the license applicable to that part of the repository:
+
+- software/code: MIT;
+- non-software learning and research content: CC BY 4.0.
+
+Third-party material must retain its original license and attribution. See [docs/licensing.md](docs/licensing.md).
